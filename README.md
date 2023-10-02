@@ -12,7 +12,6 @@ proyectos y mis intereses.
 * Cultura Japonesa
 * Cultura britanica
 * Historia
-
 <!--
 **andresACF/andresACF** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
