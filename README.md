@@ -4,6 +4,13 @@ Este es mi sitio personal. Aquí puedes encontrar información sobre mí, mis
 proyectos y mis intereses.
 ## Contenido
 * Soy un desarrollador aficionado
+## Proyectos 
+* Sistema de reservas túristicas
+  Link asociado: https://github.com/CarlosAlvia/Proyecto-Poo.git
+  Colaboradores: Carlos Alvia
+* Historial de los mundiales de fútbol.
+  Link asociado: https://github.com/CarlosAlvia/Proyecto2P-P3-G2.git
+  Colaboradores: Michale Jimenez y  Carlos Alvia
 ## Información personal
 * Nombre: Andrés Cornejo
 * Ocupación: Estudiante
