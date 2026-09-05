@@ -5,6 +5,8 @@ proyectos y mis intereses.
 ## Contenido
 * Soy un desarrollador aficionado
 ## Proyectos 
+* **Dobla** — prototipo interactivo de una estación que dobla la ropa y la deja en la canasta.
+  Link: [plegado/index.html](./plegado/index.html)
 * Sistema de reservas túristicas
   Link asociado: https://github.com/CarlosAlvia/Proyecto-Poo.git
   Colaboradores: Carlos Alvia
