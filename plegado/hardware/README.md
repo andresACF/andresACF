@@ -49,6 +49,7 @@ Regla de oro: si no cabe plana en la tabla (~45 × 55 cm), no la fuerces.
 |------|-----------|
 | [`BOM.md`](./BOM.md) | Lista de materiales y costo estimado |
 | [`MONTAJE.md`](./MONTAJE.md) | Corte, ensamble, cableado, calibración |
+| [`USO_DIARIO.md`](./USO_DIARIO.md) | Rutina diaria, atascos y mantenimiento |
 | [`../firmware/dobla_fold/`](../firmware/dobla_fold/) | Código Arduino para ESP32 |
 | [`../index.html`](../index.html) | UI + control por Web Serial |
 
