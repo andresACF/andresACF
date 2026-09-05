@@ -5,8 +5,12 @@ proyectos y mis intereses.
 ## Contenido
 * Soy un desarrollador aficionado
 ## Proyectos 
-* **Dobla** — prototipo interactivo de una estación que dobla la ropa y la deja en la canasta.
-  Link: [plegado/index.html](./plegado/index.html)
+* **Dobla** — estación de plegado para uso diario (hardware ESP32 + web).
+  Simulación y control: [plegado/index.html](./plegado/index.html)
+  Construir en casa: [plegado/hardware/README.md](./plegado/hardware/README.md)
+  · materiales [BOM](./plegado/hardware/BOM.md)
+  · montaje [MONTAJE](./plegado/hardware/MONTAJE.md)
+  · firmware [dobla_fold.ino](./plegado/firmware/dobla_fold/dobla_fold.ino)
 * Sistema de reservas túristicas
   Link asociado: https://github.com/CarlosAlvia/Proyecto-Poo.git
   Colaboradores: Carlos Alvia

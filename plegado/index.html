@@ -30,6 +30,7 @@
       </a>
       <nav class="nav">
         <a href="#estacion">Estación</a>
+        <a href="#construir">Construir</a>
         <a href="#como">Cómo funciona</a>
       </nav>
     </header>
@@ -40,12 +41,12 @@
           <p class="brand-lockup">Dobla</p>
           <h1>De la secadora a la canasta, ya doblada.</h1>
           <p class="lede">
-            Un prototipo de estación doméstica que toma cada prenda, la pliega
-            y la deja ordenada en tu canasta.
+            Estación doméstica para uso diario: colocas la prenda, la tabla
+            motorizada la pliega y la vuelca a tu canasta.
           </p>
           <div class="cta-row">
-            <a class="btn btn-primary" href="#estacion">Probar la estación</a>
-            <a class="btn btn-ghost" href="#como">Ver el flujo</a>
+            <a class="btn btn-primary" href="#estacion">Usar la estación</a>
+            <a class="btn btn-ghost" href="#construir">Construir la mía</a>
           </div>
         </div>
 
@@ -186,6 +187,42 @@
               Vaciar canasta
             </button>
 
+            <div class="hw-panel">
+              <p class="hw-title">Hardware (ESP32)</p>
+              <p class="hw-hint" id="hw-support">
+                Conecta tu Dobla por USB (Chrome / Edge).
+              </p>
+              <div class="hw-actions">
+                <button type="button" class="btn btn-ghost" id="connect-btn">
+                  Conectar ESP32
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  id="hw-fold-btn"
+                  disabled
+                >
+                  Doblar en hardware
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-ghost"
+                  id="hw-home-btn"
+                  disabled
+                >
+                  Home
+                </button>
+              </div>
+              <p class="hw-link">
+                Guías:
+                <a href="./hardware/README.md">resumen</a>
+                ·
+                <a href="./hardware/BOM.md">materiales</a>
+                ·
+                <a href="./hardware/MONTAJE.md">montaje</a>
+              </p>
+            </div>
+
             <p class="status" id="status" role="status" aria-live="polite">
               Lista para la primera prenda.
             </p>
@@ -218,6 +255,40 @@
         </div>
       </section>
 
+      <section id="construir" class="build">
+        <div class="section-intro">
+          <h2>Levántalo en casa</h2>
+          <p>
+            Tabla de pliegue con 4 servos + ESP32. Costo orientativo
+            $80–180. Pensado para camisetas, toallas y pantalones del día a día.
+          </p>
+        </div>
+        <ol class="steps">
+          <li>
+            <strong>Compra</strong>
+            <span
+              >ESP32, 4 servos de metal, fuente 5&nbsp;V 10&nbsp;A, MDF y una
+              canasta. Lista en <a href="./hardware/BOM.md">BOM.md</a>.</span
+            >
+          </li>
+          <li>
+            <strong>Arma</strong>
+            <span
+              >Corta la tabla, monta bisagras y bascula, cablea servos.
+              Paso a paso en <a href="./hardware/MONTAJE.md">MONTAJE.md</a>.</span
+            >
+          </li>
+          <li>
+            <strong>Flashea</strong>
+            <span
+              >Sube
+              <a href="./firmware/dobla_fold/dobla_fold.ino">dobla_fold.ino</a>,
+              calibra ángulos y usa el botón físico o esta web por USB.</span
+            >
+          </li>
+        </ol>
+      </section>
+
       <section id="como" class="how">
         <div class="section-intro">
           <h2>Cómo funciona</h2>
@@ -225,16 +296,16 @@
         </div>
         <ol class="steps">
           <li>
-            <strong>Detecta</strong>
-            <span>La prenda se coloca abierta sobre la tabla de pliegue.</span>
+            <strong>Coloca</strong>
+            <span>Extiende la prenda centrada sobre la tabla.</span>
           </li>
           <li>
             <strong>Dobla</strong>
-            <span>Los paneles laterales e inferiores pliegan en secuencia.</span>
+            <span>Los paneles laterales e inferior pliegan en secuencia.</span>
           </li>
           <li>
             <strong>Guarda</strong>
-            <span>El paquete cae en la canasta, listo para guardar o llevar.</span>
+            <span>La tabla se inclina y la prenda cae en la canasta.</span>
           </li>
         </ol>
       </section>
@@ -242,7 +313,7 @@
 
     <footer class="site-footer">
       <p>
-        Prototipo de concepto por Andrés Cornejo ·
+        Dobla — estación de plegado por Andrés Cornejo ·
         <a href="../README.md">Volver al perfil</a>
       </p>
     </footer>
