@@ -1,0 +1,23 @@
+origen,pin_origen,destino,pin_destino,senal,notas
+ESP32,GPIO21 (SDA),PCA9685,SDA,I2C datos,pull-up 4.7k a 3V3
+ESP32,GPIO22 (SCL),PCA9685,SCL,I2C reloj,pull-up 4.7k a 3V3
+ESP32,3V3,PCA9685,VCC,Logica 3V3,alimenta logica del PCA9685
+ESP32,GND,GND comun,GND,Referencia,estrella single-point
+ESP32,GPIO34 (ADC),Sensor pinza,OUT,Tacto/corriente,entrada analogica
+ESP32,USB,Raspberry Pi / PC,USB,UART comandos,protocolo ASCII de linea
+PCA9685,V+,Riel 6V servos,V+,Potencia servos,NO alimentar desde ESP32
+PCA9685,CH0,Servo J0 base,senal,PWM,MG996R
+PCA9685,CH1,Servo J1 hombro,senal,PWM,DS3218 (alto par)
+PCA9685,CH2,Servo J2 codo,senal,PWM,MG996R
+PCA9685,CH3,Servo J3 muneca,senal,PWM,MG996R
+PCA9685,CH4,Servo pinza,senal,PWM,SG90/MG90S
+PCA9685,CH5,Servo solapa izquierda,senal,PWM,MG996R
+PCA9685,CH6,Servo solapa derecha,senal,PWM,MG996R
+PCA9685,CH7,Servo solapa inferior,senal,PWM,DS3218
+Fuente 6V,V+,Fusible 15-20A,IN,Potencia,proteccion de riel
+Fusible 15-20A,OUT,Riel 6V servos,V+,Potencia,tras fusible
+Fuente 6V,GND,GND comun,GND,Referencia,masa comun con logica
+Fuente 5V,V+,ESP32,VIN,Logica,fuente separada de servos
+Fuente 5V,V+,Raspberry Pi / PC,5V,Logica,segun plataforma
+Banco condensadores,+,Riel 6V servos,V+,Desacoplo,2200-4700uF bulk
+Cap ceramico 100nF,+,Servo (cada uno),V+,Ruido HF,cerca de cada servo

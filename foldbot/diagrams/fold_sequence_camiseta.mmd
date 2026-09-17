@@ -1,0 +1,13 @@
+%% Foldbot - Secuencia de plegado de una camiseta
+%% Render: mmdc -i fold_sequence_camiseta.mmd -o svg/fold_sequence_camiseta.svg
+sequenceDiagram
+  participant Arm as Brazo
+  participant Bd as Tablero
+  Arm->>Bd: coloca camiseta centrada
+  Bd->>Bd: cierra solapa IZQUIERDA (110, 800ms)
+  Bd->>Bd: abre solapa IZQUIERDA (0, 400ms)
+  Bd->>Bd: cierra solapa DERECHA (110, 800ms)
+  Bd->>Bd: abre solapa DERECHA (0, 400ms)
+  Bd->>Bd: cierra solapa INFERIOR (120, 1000ms)
+  Bd->>Bd: abre solapa INFERIOR (0, 400ms)
+  Bd-->>Arm: DONE

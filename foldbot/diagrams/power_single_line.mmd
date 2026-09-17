@@ -1,0 +1,14 @@
+%% Foldbot - Diagrama unifilar de alimentacion
+%% Render: mmdc -i power_single_line.mmd -o svg/power_single_line.svg
+flowchart LR
+  wall["Red 110/220 VAC"] --> psu6["Fuente 6V / 10-20A<br/>(servos)"]
+  wall --> psu5["Fuente 5V / 3A<br/>(logica)"]
+  psu6 --> fuse["Fusible 15-20A"]
+  fuse --> cap["Banco condensadores<br/>2200-4700uF"]
+  cap --> rail6["Riel 6V servos"]
+  rail6 --> arm_servos["Servos brazo (5)"]
+  rail6 --> fold_servos["Servos tablero (3)"]
+  psu5 --> mcu["ESP32 / Arduino"]
+  psu5 --> pi["Raspberry Pi / PC"]
+  mcu -. "GND comun" .- rail6
+  pi -. "GND comun" .- mcu

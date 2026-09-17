@@ -1,0 +1,10 @@
+# Foldbot AI — dependencias del scaffold (MVP sin cámara)
+Flask>=3.0
+Pillow>=10.0
+
+# --- Fase 2 (transfer learning). Descomentar al entrenar el modelo real ---
+# torch>=2.2
+# torchvision>=0.17
+
+# --- Desarrollo / pruebas ---
+pytest>=8.0
