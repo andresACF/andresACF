@@ -1,0 +1,17 @@
+{
+  "name": "andresACF personal site",
+  "install": "pip3 install --user 'grip==4.6.2'",
+  "terminals": [
+    {
+      "name": "readme-preview",
+      "command": "export PATH=\"$HOME/.local/bin:$PATH\" && grip README.md 0.0.0.0:6419",
+      "description": "Live GitHub-styled preview of README.md at http://localhost:6419 (re-renders on save)."
+    }
+  ],
+  "ports": [
+    {
+      "name": "readme-preview",
+      "port": 6419
+    }
+  ]
+}
