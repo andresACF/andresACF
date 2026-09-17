@@ -13,6 +13,12 @@ integran al final:
 > **Prioridad actual (Fase 0):** documentar y diseñar primero (3D, eléctricos,
 > BOM). Fabricar después. Conectar visión/IA sólo cuando llegue la cámara.
 
+> ⚠️ **Decisión de calidad (importante):** para agarrar ropa de forma fiable
+> —sobre todo **toallas**— la opción recomendada **no** es el brazo articulado de
+> servos, sino un **pórtico XYZ + cabezal de aguja retráctil**. El "agarre de
+> tela" es el módulo más crítico del proyecto. Ver
+> [`docs/07-viabilidad-y-riesgos.md`](docs/07-viabilidad-y-riesgos.md).
+
 ## Flujo del sistema
 
 ```mermaid
@@ -35,7 +41,8 @@ foldbot/
 │   ├── 03-mecanica-plegado.md ← geometría de solapas, secuencia por prenda
 │   ├── 04-electronica.md      ← alimentación, control, diagramas de corriente
 │   ├── 05-presupuesto.md      ← BOM con costo estimado por módulo
-│   └── 06-cronograma.md       ← qué hacer antes / después de noviembre
+│   ├── 06-cronograma.md       ← qué hacer antes / después de noviembre
+│   └── 07-viabilidad-y-riesgos.md ← auditoría honesta + rediseño recomendado
 ├── cad/                       ← modelos OpenSCAD paramétricos (→ STL)
 │   ├── params.scad            ← parámetros globales compartidos
 │   ├── arm.scad               ← brazo 4 DOF + pinza

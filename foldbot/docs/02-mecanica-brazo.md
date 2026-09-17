@@ -1,5 +1,12 @@
 # 02 — Mecánica del brazo DIY
 
+> ⚠️ **Nota de viabilidad (léela primero):** el brazo articulado de servos con
+> pinza de dos dedos que se describe aquí es la **opción de menor coste pero
+> menor fiabilidad**, y **no** es la recomendada para agarrar toallas pesadas.
+> Para el objetivo de **calidad** se recomienda un **pórtico XYZ + cabezal de
+> aguja retráctil**. Ver el análisis completo en
+> [`07-viabilidad-y-riesgos.md`](07-viabilidad-y-riesgos.md).
+
 ## Resumen
 
 Brazo **pick-from-top** de **4 DOF + pinza** (gripper), pensado para ropa ligera.
