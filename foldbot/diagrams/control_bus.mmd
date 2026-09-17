@@ -1,0 +1,16 @@
+%% Foldbot - Bus de control (Pi <-> MCU <-> servos)
+%% Render: mmdc -i control_bus.mmd -o svg/control_bus.svg
+flowchart LR
+  pi["Raspberry Pi / PC<br/>(vision + IA + orquestador)"]
+  mcu["ESP32<br/>(tiempo real)"]
+  pca["PCA9685<br/>(16ch PWM, I2C)"]
+  servos_arm["Servos brazo<br/>J0..J3 + pinza"]
+  servos_fold["Servos tablero<br/>izq / der / inferior"]
+  sensor["Sensor tacto/corriente<br/>(pinza)"]
+
+  pi -- "USB / UART (ASCII)" --> mcu
+  mcu -- "I2C (SDA/SCL)" --> pca
+  pca -- "PWM CH0-CH4" --> servos_arm
+  pca -- "PWM CH5-CH7" --> servos_fold
+  sensor -- "GPIO / ADC" --> mcu
+  mcu -- "ACK / DONE / ERR" --> pi
