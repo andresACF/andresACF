@@ -10,6 +10,7 @@ proyectos y mis intereses.
   Planos: [ARQUITECTURA](./plegado/hardware/ARQUITECTURA.md)
   · [BOM](./plegado/hardware/BOM.md)
   · [visión RGB](./plegado/hardware/VISION.md)
+  · **entrenar modelo:** [plegado/vision](./plegado/vision/README.md)
   · [agarre](./plegado/hardware/AGARRE.md)
   · [plegado/firmware](./plegado/firmware/dobla_fold/dobla_fold.ino)
 * Sistema de reservas túristicas

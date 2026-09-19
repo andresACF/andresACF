@@ -88,6 +88,7 @@ Docs: [`AGARRE.md`](./AGARRE.md)
 | [`BOM.md`](./BOM.md) | Materiales por módulo A/B/C |
 | [`MONTAJE.md`](./MONTAJE.md) | Montaje del módulo C (plegado) |
 | [`VISION.md`](./VISION.md) | Clasificador RGB y dataset |
+| [`../vision/`](../vision/) | Código de entrenamiento / inferencia |
 | [`AGARRE.md`](./AGARRE.md) | Brazo / pinza / extender |
 | [`USO_DIARIO.md`](./USO_DIARIO.md) | Rutina objetivo + fallbacks |
 | [`../firmware/dobla_fold/`](../firmware/dobla_fold/) | Firmware módulo C |

@@ -39,9 +39,17 @@ Herramientas: Roboflow, Label Studio, o carpetas simples si solo clasificas.
 
 ## Modelo v1 sugerido
 
-- Clasificación: MobileNet / EfficientNet fine-tune (rápido en RPi).
+- Clasificación: MobileNetV3-Small fine-tune (código en [`../vision/`](../vision/)).
 - Si necesitas bbox/grasp: YOLO nano o similar sobre el mismo dataset.
 - Inferencia local; el ESP32 solo recibe órdenes (`FOLD`, etc.).
+
+```bash
+cd plegado/vision
+pip install -r requirements.txt
+python3 prepare_seed_dataset.py   # smoke test sintético
+python3 train.py --epochs 8
+# luego reemplaza data/ con FOTOS REALES del tacho y reentrena
+```
 
 ## Integración
 

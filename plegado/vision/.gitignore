@@ -1,0 +1,13 @@
+# fotos regenerables / reales (no versionar)
+data/train/**/*.jpg
+data/train/**/*.jpeg
+data/train/**/*.png
+data/train/**/*.webp
+data/val/**/*.jpg
+data/val/**/*.jpeg
+data/val/**/*.png
+data/val/**/*.webp
+data/manifest.json
+__pycache__/
+*.pyc
+.venv/
