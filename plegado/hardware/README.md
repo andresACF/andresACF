@@ -1,61 +1,39 @@
-# Dobla Hardware — estación de plegado para uso diario
+# Dobla Hardware
 
-Sistema físico semi-automático: colocas la prenda abierta, pulsas un botón
-(o la web), la tabla la dobla y la vuelca a una canasta.
+Sistema automático: **tacho → visión → agarre → plegado → canasta**.
 
-No es un robot con visión artificial. Es una **tabla de pliegue motorizada**
-(estilo FlipFold) con 4 servos. Es lo más realista de construir en casa para
-usar todos los días sin gastar miles de dólares.
+Tú echas la ropa al tacho. La máquina separa, identifica (RGB), extiende,
+dobla y apila. El plegado con tabla+servos es solo el **módulo C**.
 
-## Flujo de uso diario
+## Empieza aquí
 
-1. Sacas la prenda de la secadora / tendedero.
-2. La extiendes centrada sobre la tabla.
-3. Pulsas **Doblar** (botón físico o app).
-4. Los paneles pliegan: izquierda → derecha → inferior.
-5. La tabla se inclina y la prenda cae en la canasta.
-6. La tabla vuelve a posición. Siguiente prenda.
+1. **Plano completo:** [`ARQUITECTURA.md`](./ARQUITECTURA.md)
+2. **Materiales por módulo:** [`BOM.md`](./BOM.md)
+3. **Módulo C (plegado, ya construible):** [`MONTAJE.md`](./MONTAJE.md)
+4. **Módulo A (visión RGB):** [`VISION.md`](./VISION.md)
+5. **Módulo B (agarre):** [`AGARRE.md`](./AGARRE.md)
+6. **Uso diario objetivo:** [`USO_DIARIO.md`](./USO_DIARIO.md)
+7. **Firmware C:** [`../firmware/dobla_fold/`](../firmware/dobla_fold/)
 
-Tiempo típico por prenda: **8–12 segundos** + el tiempo de colocarla.
-
-## Qué sí / qué no
-
-| Bien | Mal / no confiable |
-|------|--------------------|
-| Camisetas, polos | Sábanas ajustadas |
-| Toallas medianas | Abrigos gruesos |
-| Pantalones deportivos / jeans finos | Prendas con mucho volumen |
-| Fundas de almohada | Ropa muy húmeda |
-
-Regla de oro: si no cabe plana en la tabla (~45 × 55 cm), no la fuerces.
-
-## Arquitectura
+## Flujo objetivo
 
 ```
-  [Botón / Web Serial]
-           │
-        ESP32
-           │
-    ┌──────┼──────────┐
-  ServoL ServoR ServoB ServoTip
-    │      │      │       │
-  panel  panel  panel   bascula
-  izq.   der.   abajo   → canasta
+tacho de entrada → cámara RGB → pinza saca 1 prenda
+      → extiende en tabla → servos pliegan → canasta
 ```
 
-## Carpetas
+## Orden de build
 
-| Ruta | Contenido |
-|------|-----------|
-| [`BOM.md`](./BOM.md) | Lista de materiales y costo estimado |
-| [`MONTAJE.md`](./MONTAJE.md) | Corte, ensamble, cableado, calibración |
-| [`USO_DIARIO.md`](./USO_DIARIO.md) | Rutina diaria, atascos y mantenimiento |
-| [`../firmware/dobla_fold/`](../firmware/dobla_fold/) | Código Arduino para ESP32 |
-| [`../index.html`](../index.html) | UI + control por Web Serial |
+| Fase | Qué | ¿Usable solo? |
+|------|-----|---------------|
+| 0 | Módulo C — tabla motorizada | Sí (colocas a mano) |
+| 1 | Módulo A — clasificador RGB | Sí (ayuda + telemetría) |
+| 2 | Módulo B — agarre/extender | Junto con A+C = automático |
+| 3 | Orquestador de lote | Un botón “vaciar tacho” |
 
 ## Seguridad
 
-- Fuente de 5 V con capacidad real (mín. 5 A). Los servos pican corriente.
-- No metas la mano mientras pliega.
-- Fija la canasta para que no se vuelque al recibir la prenda.
-- Si un servo forcejea, corta energía: suele ser prenda mal colocada.
+- Fuentes separadas: 5 V servos C, 12–24 V motores B, lógica a parte.
+- Parada de emergencia corta todo.
+- No metas la mano en tacho ni tabla en movimiento.
+- Fija la canasta de salida.

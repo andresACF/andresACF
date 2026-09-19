@@ -1,43 +1,50 @@
-# Uso diario de Dobla
+# Uso diario — sistema automático
 
-Guía corta para cuando la máquina ya está armada y calibrada.
+## Objetivo (cuando A+B+C estén integrados)
 
-## Encendido (cada sesión)
+1. Echa la ropa al **tacho de entrada**.
+2. Pulsa **Iniciar lote** (o detección automática de carga).
+3. Espera: el sistema saca, identifica, extiende, dobla y apila.
+4. Retira la **canasta de salida**.
 
-1. Enchufa la **fuente 5 V 10 A** (servos).
-2. Conecta el **ESP32** por USB (PC) o su propio cargador 5 V 1 A.
-3. Espera `DOBLA_READY` en el Monitor Serial o el LED apagado = listo.
-4. Opcional: abre `plegado/index.html` en Chrome/Edge → **Conectar ESP32**.
+No extiendes prendas. No eliges tipo (salvo override en la UI).
 
-## Flujo por prenda
+## Mientras solo tengas el módulo C
 
-1. Extiende la prenda **centrada** en la tabla (cuello hacia el panel inferior).
-2. Pulsa el **botón físico** o **Doblar en hardware** en la web.
-3. No toques hasta que termine el ciclo (~8–12 s).
-4. La prenda cae en la canasta. Repite.
+Sigue el flujo semi:
 
-## Si se atasca
+1. Enciende fuente 5 V + ESP32.
+2. Extiende una prenda en la tabla.
+3. Botón / web → dobla → canasta.
+4. Repite.
 
-1. Corta la fuente 5 V de los servos.
-2. Saca la prenda con la mano.
-3. Enciende de nuevo y envía `HOME` (web o Monitor Serial).
-4. Revisa que la prenda no sea demasiado gruesa/grande.
+Así entrenas hábitos y calibras C antes de automatizar A/B.
 
-## Qué doblar hoy
+## Durante un lote automático
 
-- Sí: camisetas, polos, toallas medianas, pantalones finos/deportivos, fundas.
-- No: sábanas ajustadas, abrigos, jeans muy rígidos, ropa mojada.
+- LED/UI: `idle` | `picking` | `classifying` | `folding` | `done` | `error`
+- Si `error` (agarre fallido / prenda `otro`): deja esa prenda en bandeja de
+  rechazo o pide ayuda; continúa con la siguiente.
+- Parada de emergencia: corta motores B y servos C.
 
-## Mantenimiento semanal
+## Qué echar al tacho (v1)
 
-- Revisa tornillos de bielas y bisagras.
-- Limpia pelusa de la tabla.
-- Escucha ruidos raros en servos: suele ser ángulo mal calibrado o prenda mal puesta.
+| Sí | No |
+|----|----|
+| Camisetas, polos | Sábanas ajustadas |
+| Toallas medianas | Abrigos / edredones |
+| Pantalones finos | Ropa empapada |
+| Fundas | Cables, zapatos, objetos duros |
 
-## Checklist “listo para diario”
+## Mantenimiento
 
-- [ ] 10 camisetas seguidas sin atasco
-- [ ] Canasta fija y no se vuelca
-- [ ] Botón físico funciona sin PC
-- [ ] Web Serial funciona cuando quieres control desde el navegador
-- [ ] Sabes apagar la fuente en emergencias
+- Semanal: pelusa en tabla y tacho, tornillos de pinza/bielas.
+- Revisar enfoque y limpieza del lente de la cámara.
+- Recalibrar ángulos del módulo C si aparece roce.
+
+## Checklist “automático listo”
+
+- [ ] Llenas el tacho, pulsas iniciar, no tocas hasta el final
+- [ ] ≥7/10 prendas terminan dobladas en la canasta
+- [ ] Las fallidas van a rechazo sin atascar la línea
+- [ ] Sabes dónde está el kill switch

@@ -1,6 +1,11 @@
-# Montaje paso a paso
+# Montaje — Módulo C (plegado)
 
-Tiempo estimado de construcción: un fin de semana si ya tienes herramientas.
+> Parte del sistema automático ([`ARQUITECTURA.md`](./ARQUITECTURA.md)).
+> Este documento arma la **tabla que dobla y vuelca a canasta**.
+> Los módulos A (visión) y B (agarre) se conectan después: ellos dejan la
+> prenda en esta tabla y disparan `FOLD`.
+
+Tiempo estimado de construcción del módulo C: un fin de semana si ya tienes herramientas.
 
 ## 1. Cortar la tabla
 

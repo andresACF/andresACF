@@ -1,64 +1,85 @@
-# Lista de materiales (BOM)
+# Lista de materiales (BOM) — por módulos
 
-Costos aproximados en USD (pueden variar por país/tienda). Pensado para
-conseguir piezas en Mercado Libre, Amazon, AliExpress o ferretería local.
+Costos aproximados en USD. Compra por fases: primero **C**, luego **A**, luego **B**.
 
-## Electrónica
+---
 
-| # | Pieza | Cant. | Est. | Notas |
-|---|-------|------:|-----:|-------|
-| 1 | ESP32 DevKit (30 pines) | 1 | $6–12 | Con USB-C preferible |
-| 2 | Servo MG996R o DS3218 (metal) | 4 | $8–15 c/u | No uses SG90: no tienen torque |
-| 3 | Fuente 5 V 10 A (meanwell/genérica) | 1 | $12–25 | Crítico: no alimentar servos desde el USB |
-| 4 | Botón pulsador momentáneo 12 mm | 1 | $1 | Doblar |
-| 5 | Botón pulsador (reset / emergencia) | 1 | $1 | Opcional, NC a GND |
-| 6 | LED 5 mm + resistencia 220 Ω | 1 | $0.50 | Estado “ocupado” |
-| 7 | Protoboard o PCB perforada | 1 | $2–5 | |
-| 8 | Cable duplex 22–24 AWG | 5 m | $3 | Señal + 5 V / GND |
-| 9 | Conectores Dupont / bornes | 1 set | $2 | |
-|10 | Capacitor 1000 µF 16 V | 1 | $1 | En paralelo a la alimentación de servos |
+## Módulo C — Plegado (obligatorio primero)
 
-**Subtotal electrónica:** ~$60–100
-
-## Mecánica
+### Electrónica
 
 | # | Pieza | Cant. | Est. | Notas |
 |---|-------|------:|-----:|-------|
-| 1 | MDF o triplay 6–9 mm | 1 pliego | $8–15 | Base + 3 paneles |
-| 2 | Bisagras piano o 8 bisagras chicas | 1 set | $4–8 | Paneles izq/der/abajo |
-| 3 | Ejes / bielas de servo (horquilla + varilla M3) | 4 sets | $6–12 | O imprime en 3D |
-| 4 | Tornillos M3 + tuercas + arandelas | 1 set | $3 | |
-| 5 | Esquinas / soportes en L de metal | 4–6 | $3 | Marco y bascula |
-| 6 | Canasta de ropa rígida | 1 | $5–15 | La que ya tengas sirve |
-| 7 | Patas antideslizantes / goma | 4 | $2 | |
-| 8 | Cinta antideslizante (opcional) | 1 | $3 | Sobre la tabla para que no resbale la ropa |
-| 9 | Pintura / barniz sellador | — | $5 | Evita que el MDF se hinche |
+| 1 | ESP32 DevKit | 1 | $6–12 | USB-C preferible |
+| 2 | Servo MG996R / DS3218 (metal) | 4 | $8–15 c/u | No SG90 |
+| 3 | Fuente 5 V 10 A | 1 | $12–25 | Nunca alimentar servos desde USB |
+| 4 | Botón Doblar | 1 | $1 | |
+| 5 | LED + 220 Ω | 1 | $0.50 | Busy |
+| 6 | Protoboard / PCB | 1 | $2–5 | |
+| 7 | Cable + Dupont | — | $5 | |
+| 8 | Capacitor 1000 µF 16 V | 1 | $1 | En rail 5 V servos |
 
-**Subtotal mecánica:** ~$40–70
+### Mecánica
 
-## Herramientas (si no las tienes)
+| # | Pieza | Cant. | Est. | Notas |
+|---|-------|------:|-----:|-------|
+| 1 | MDF 6–9 mm | 1 | $8–15 | Tabla + paneles |
+| 2 | Bisagras | 1 set | $4–8 | |
+| 3 | Bielas M3 / horquillas | 4 | $6–12 | |
+| 4 | Tornillería M3 + escuadras | 1 set | $6 | |
+| 5 | Canasta de **salida** | 1 | $5–15 | |
+| 6 | Antideslizante + barniz | — | $8 | |
 
-- Destornilladores, taladro, sierra caladora o sierra de mesa
-- Soldador + estaño (recomendado para uniones firmes)
-- Multímetro
-- Impresora 3D (opcional, para brazos de servo)
+**Subtotal C:** ~$80–180
 
-## Costo total orientativo
+Detalle de montaje: [`MONTAJE.md`](./MONTAJE.md)
 
-| Escenario | Rango |
-|-----------|------:|
-| Aprovechando canasta y herramientas | **$80–120** |
-| Comprando casi todo nuevo | **$120–180** |
+---
 
-## Sustituciones válidas
+## Módulo A — Visión RGB
 
-- **Sin ESP32:** Arduino Uno + módulo USB-serial funciona, pero Web Serial igual.
-- **Servos más baratos:** MG995 puede servir para camisetas; con jeans fallará antes.
-- **Tabla lista:** un FlipFold comercial + motorizar las bisagras acorta el trabajo de carpintería.
+| # | Pieza | Cant. | Est. | Notas |
+|---|-------|------:|-----:|-------|
+| 1 | Cámara USB 1080p o CSI | 1 | $15–40 | Fija top-down |
+| 2 | Raspberry Pi 5 (o PC viejo) | 1 | $0–80 | Inferencia |
+| 3 | LED panel / tira difusa | 1 | $8–20 | Luz estable |
+| 4 | Soporte cámara | 1 | $5–15 | |
+| 5 | MicroSD / disco | 1 | $10 | |
 
-## Lo que NO hace falta (aún)
+**Subtotal A:** ~$40–170 (menos si ya tienes PC/RPi)
 
-- Cámara / visión artificial
-- Brazo robótico de 6 ejes
-- Raspberry Pi (el ESP32 alcanza)
-- Impresión 3D obligatoria
+**No incluyas RGB-D en v1.** Plan: [`VISION.md`](./VISION.md)
+
+---
+
+## Módulo B — Agarre / extender
+
+| # | Pieza | Cant. | Est. | Notas |
+|---|-------|------:|-----:|-------|
+| 1 | Perfil aluminio + ruedas (pórtico XY) | 1 kit | $80–200 | O brazo kit |
+| 2 | Steppers NEMA17 + drivers | 2–3 | $40–80 | |
+| 3 | Eje Z + pinza (servo o vacuum) | 1 | $25–80 | |
+| 4 | Fuente 12–24 V (motores) | 1 | $20–40 | Separada del 5 V |
+| 5 | Fines de carrera | 3–6 | $5 | Homing |
+| 6 | **Tacho de entrada** rígido | 1 | $10–25 | Boca ancha |
+| 7 | Controladora (CNC shield / MCU) | 1 | $15–40 | |
+
+**Subtotal B:** ~$200–500+
+
+Plan: [`AGARRE.md`](./AGARRE.md)
+
+---
+
+## Totales orientativos
+
+| Alcance | Rango |
+|---------|------:|
+| Solo C (semi, colocas a mano) | $80–180 |
+| C + A | $150–350 |
+| **Automático C+A+B** | **$400–900+** |
+
+## Sustituciones
+
+- Sin RPi: un laptop viejo corre visión igual.
+- Sin pórtico: un brazo educativo barato sirve para prototipo (menos fiable).
+- Canasta de entrada = el tacho; canasta de salida = la del módulo C.
