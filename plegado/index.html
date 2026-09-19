@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dobla — tu ropa, doblada y en la canasta</title>
+    <meta
+      name="description"
+      content="Prototipo interactivo de una estación que dobla tu ropa y la deja lista en la canasta."
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232f8f88'/%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Manrope:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="atmosphere" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="brand" href="#inicio" aria-label="Dobla inicio">
+        <span class="brand-mark" aria-hidden="true"></span>
+        Dobla
+      </a>
+      <nav class="nav">
+        <a href="#estacion">Estación</a>
+        <a href="#construir">Construir</a>
+        <a href="#como">Cómo funciona</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="inicio" class="hero">
+        <div class="hero-copy">
+          <p class="brand-lockup">Dobla</p>
+          <h1>De la secadora a la canasta, ya doblada.</h1>
+          <p class="lede">
+            Echas la ropa al tacho. Dobla identifica, extiende, pliega y deja
+            todo en la canasta. Automático de verdad.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#estacion">Usar la estación</a>
+            <a class="btn btn-ghost" href="#construir">Construir la mía</a>
+          </div>
+        </div>
+
+        <div class="hero-stage" aria-hidden="true">
+          <div class="hero-glow"></div>
+          <svg
+            class="hero-illustration"
+            viewBox="0 0 640 520"
+            role="img"
+            aria-label="Ilustración de ropa doblándose hacia una canasta"
+          >
+            <defs>
+              <linearGradient id="shirtGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#7ec8c4" />
+                <stop offset="100%" stop-color="#3a9b96" />
+              </linearGradient>
+              <linearGradient id="basketGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#c9956a" />
+                <stop offset="100%" stop-color="#8f5a32" />
+              </linearGradient>
+              <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow
+                  dx="0"
+                  dy="14"
+                  stdDeviation="16"
+                  flood-color="#1f3a3a"
+                  flood-opacity="0.18"
+                />
+              </filter>
+            </defs>
+
+            <!-- folding board -->
+            <rect
+              x="70"
+              y="70"
+              width="300"
+              height="220"
+              rx="18"
+              fill="#f7fbfa"
+              stroke="#c9ddd9"
+              stroke-width="3"
+              filter="url(#softShadow)"
+            />
+            <path
+              d="M220 70 V290"
+              stroke="#d7e7e4"
+              stroke-width="2"
+              stroke-dasharray="8 10"
+            />
+            <path
+              d="M70 180 H370"
+              stroke="#d7e7e4"
+              stroke-width="2"
+              stroke-dasharray="8 10"
+            />
+
+            <!-- shirt being folded -->
+            <g class="hero-shirt">
+              <path
+                d="M140 110 L190 130 L220 118 L250 130 L300 110 L290 160 L270 210 L170 210 L150 160 Z"
+                fill="url(#shirtGrad)"
+              />
+              <path
+                d="M190 130 L220 150 L250 130"
+                fill="none"
+                stroke="#2f6f6b"
+                stroke-width="4"
+                stroke-linecap="round"
+              />
+            </g>
+
+            <!-- folded stack mid-air -->
+            <g class="hero-fold">
+              <rect x="390" y="150" width="110" height="70" rx="10" fill="#5fb5b0" />
+              <rect x="400" y="140" width="110" height="70" rx="10" fill="#7ec8c4" />
+              <rect x="410" y="130" width="110" height="70" rx="10" fill="#9fd8d4" />
+            </g>
+
+            <!-- basket -->
+            <g class="hero-basket" filter="url(#softShadow)">
+              <ellipse cx="460" cy="390" rx="130" ry="28" fill="#e8d5c2" />
+              <path
+                d="M340 320 C350 420, 570 420, 580 320 L560 390 C520 450, 400 450, 360 390 Z"
+                fill="url(#basketGrad)"
+              />
+              <path
+                d="M360 340 H560 M370 370 H550 M385 400 H535"
+                stroke="#6e4120"
+                stroke-width="4"
+                stroke-linecap="round"
+                opacity="0.35"
+              />
+              <ellipse
+                cx="460"
+                cy="320"
+                rx="120"
+                ry="26"
+                fill="none"
+                stroke="#6e4120"
+                stroke-width="10"
+              />
+              <!-- clothes already in basket -->
+              <rect x="410" y="300" width="70" height="42" rx="8" fill="#f0c27a" />
+              <rect x="455" y="292" width="68" height="40" rx="8" fill="#e8a0a0" />
+            </g>
+          </svg>
+        </div>
+      </section>
+
+      <section id="estacion" class="station">
+        <div class="section-intro">
+          <h2>Estación de plegado</h2>
+          <p>Elige una prenda, pulsa doblar y mírala caer en la canasta.</p>
+        </div>
+
+        <div class="station-layout">
+          <div class="controls">
+            <fieldset class="garment-picker">
+              <legend>Prenda</legend>
+              <label class="garment-option">
+                <input type="radio" name="garment" value="camiseta" checked />
+                <span>Camiseta</span>
+              </label>
+              <label class="garment-option">
+                <input type="radio" name="garment" value="pantalon" />
+                <span>Pantalón</span>
+              </label>
+              <label class="garment-option">
+                <input type="radio" name="garment" value="toalla" />
+                <span>Toalla</span>
+              </label>
+            </fieldset>
+
+            <button type="button" class="btn btn-primary" id="fold-btn">
+              Doblar y guardar
+            </button>
+            <button type="button" class="btn btn-ghost" id="reset-btn">
+              Vaciar canasta
+            </button>
+
+            <div class="hw-panel">
+              <p class="hw-title">Hardware (ESP32)</p>
+              <p class="hw-hint" id="hw-support">
+                Conecta tu Dobla por USB (Chrome / Edge).
+              </p>
+              <div class="hw-actions">
+                <button type="button" class="btn btn-ghost" id="connect-btn">
+                  Conectar ESP32
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  id="hw-fold-btn"
+                  disabled
+                >
+                  Doblar en hardware
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-ghost"
+                  id="hw-home-btn"
+                  disabled
+                >
+                  Home
+                </button>
+              </div>
+              <p class="hw-link">
+                Guías:
+                <a href="./hardware/ARQUITECTURA.md">arquitectura</a>
+                ·
+                <a href="./hardware/BOM.md">materiales</a>
+                ·
+                <a href="./hardware/VISION.md">visión</a>
+                ·
+                <a href="./hardware/AGARRE.md">agarre</a>
+                ·
+                <a href="./hardware/USO_DIARIO.md">uso diario</a>
+              </p>
+            </div>
+
+            <p class="status" id="status" role="status" aria-live="polite">
+              Lista para la primera prenda.
+            </p>
+            <p class="counter">
+              En la canasta: <strong id="count">0</strong>
+            </p>
+          </div>
+
+          <div class="stage" id="stage" aria-label="Simulación de plegado">
+            <div class="board">
+              <div class="garment flat" id="garment" data-type="camiseta">
+                <div class="panel left"></div>
+                <div class="panel center"></div>
+                <div class="panel right"></div>
+                <div class="panel bottom"></div>
+              </div>
+            </div>
+
+            <div class="flight-path" aria-hidden="true">
+              <div class="folded-item" id="folded-item"></div>
+            </div>
+
+            <div class="basket" id="basket">
+              <div class="basket-rim"></div>
+              <div class="basket-body">
+                <div class="stack" id="stack"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="construir" class="build">
+        <div class="section-intro">
+          <h2>Levántalo en casa</h2>
+          <p>
+            Sistema automático: tacho → visión RGB → agarre → plegado → canasta.
+            Construyes por módulos; el plegado (C) ya está listo para armar.
+          </p>
+        </div>
+        <ol class="steps">
+          <li>
+            <strong>Plano</strong>
+            <span
+              >Arquitectura completa en
+              <a href="./hardware/ARQUITECTURA.md">ARQUITECTURA.md</a>
+              y materiales en <a href="./hardware/BOM.md">BOM.md</a>.</span
+            >
+          </li>
+          <li>
+            <strong>Módulo C</strong>
+            <span
+              >Tabla + 4 servos + ESP32.
+              <a href="./hardware/MONTAJE.md">MONTAJE.md</a> y
+              <a href="./firmware/dobla_fold/dobla_fold.ino">firmware</a>.</span
+            >
+          </li>
+          <li>
+            <strong>A + B</strong>
+            <span
+              >Visión RGB
+              (<a href="./hardware/VISION.md">VISION.md</a>)
+              y agarre
+              (<a href="./hardware/AGARRE.md">AGARRE.md</a>)
+              para que solo eches la ropa al tacho.</span
+            >
+          </li>
+        </ol>
+      </section>
+
+      <section id="como" class="how">
+        <div class="section-intro">
+          <h2>Cómo funciona</h2>
+          <p>Un tacho de entrada. Una canasta de salida. Sin colocar prendas a mano.</p>
+        </div>
+        <ol class="steps">
+          <li>
+            <strong>Tacho</strong>
+            <span>Echas el montón. La cámara RGB localiza y clasifica una prenda.</span>
+          </li>
+          <li>
+            <strong>Agarre</strong>
+            <span>La pinza saca una, la extiende sobre la tabla de pliegue.</span>
+          </li>
+          <li>
+            <strong>Canasta</strong>
+            <span>Los servos doblan y vuelcan. Siguiente prenda hasta vaciar.</span>
+          </li>
+        </ol>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        Dobla — estación de plegado por Andrés Cornejo ·
+        <a href="../README.md">Volver al perfil</a>
+      </p>
+    </footer>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

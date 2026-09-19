@@ -1,0 +1,6 @@
+{
+  "classes": ["camiseta", "pantalon", "toalla", "otro", "vacio"],
+  "num_classes": 5,
+  "input_size": 224,
+  "model": "mobilenet_v3_small"
+}

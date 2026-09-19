@@ -1,0 +1,26 @@
+{
+  "best_val_acc": 0.975,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.6268,
+      "train_acc": 0.8156,
+      "val_loss": 0.2319,
+      "val_acc": 0.9
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.0405,
+      "train_acc": 0.9906,
+      "val_loss": 0.1219,
+      "val_acc": 0.9625
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.0189,
+      "train_acc": 0.9938,
+      "val_loss": 0.0646,
+      "val_acc": 0.975
+    }
+  ]
+}
