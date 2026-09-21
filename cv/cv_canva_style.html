@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>CV Andrés Alfredo Cornejo Figueroa</title>
+  <style>
+    @font-face {
+      font-family: "Poppins";
+      src: url("assets/fonts/Poppins-Light.ttf") format("truetype");
+      font-weight: 300;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: "Poppins";
+      src: url("assets/fonts/Poppins-Regular.ttf") format("truetype");
+      font-weight: 400;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: "Poppins";
+      src: url("assets/fonts/Poppins-SemiBold.ttf") format("truetype");
+      font-weight: 600;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: "Poppins";
+      src: url("assets/fonts/Poppins-Bold.ttf") format("truetype");
+      font-weight: 700;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: "Garet";
+      src: url("assets/fonts/Montserrat-Bold.ttf") format("truetype");
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --beige: #dfdad4;
+      --beige-dark: #c0b5a7;
+      --ink: #3a3834;
+      --ink-soft: #42423c;
+      --line: #a39b91;
+      --white: #ffffff;
+      --sidebar-w: 245px;
+    }
+
+    html, body {
+      width: 210mm;
+      background: #777;
+      color: var(--ink);
+      font-family: "Poppins", sans-serif;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .page {
+      width: 210mm;
+      height: 297mm;
+      background: var(--white);
+      position: relative;
+      overflow: hidden;
+      page-break-after: always;
+      margin: 0 auto 12px;
+    }
+
+    .sidebar {
+      position: absolute;
+      top: 6px;
+      left: 5px;
+      bottom: 6px;
+      width: var(--sidebar-w);
+      background: var(--beige);
+    }
+
+    .photo-wrap {
+      position: absolute;
+      top: 38px;
+      left: 54px;
+      width: 120px;
+      height: 138px;
+      overflow: hidden;
+      background: var(--beige-dark);
+    }
+    .photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    /* decorative accent behind photo (like original) */
+    .photo-accent {
+      position: absolute;
+      top: 61px;
+      left: 0;
+      width: 60px;
+      height: 102px;
+      background: var(--beige-dark);
+    }
+
+    .side-section {
+      position: absolute;
+      left: 18px;
+      right: 14px;
+    }
+
+    .side-title {
+      font-family: "Garet", "Poppins", sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      padding-left: 18px;
+      position: relative;
+    }
+
+    .side-title::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 1px;
+      width: 11px;
+      height: 11px;
+      border: 1.5px solid var(--line);
+      background: var(--white);
+    }
+
+    .side-rule {
+      position: absolute;
+      left: -18px;
+      right: -8px;
+      top: 18px;
+      border-top: 1.5px solid var(--line);
+    }
+
+    .side-title .side-rule { display: block; }
+
+    .contact { top: 198px; }
+    .contact p {
+      font-size: 11px;
+      line-height: 1.35;
+      margin: 0 0 8px 22px;
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+    }
+    .contact .ico {
+      width: 12px;
+      height: 12px;
+      margin-top: 2px;
+      flex: 0 0 auto;
+      opacity: 0.85;
+    }
+
+    .edu { top: 352px; }
+    .edu-item { margin: 0 0 14px 8px; }
+    .edu-item .dates {
+      font-size: 9.8px;
+      font-weight: 400;
+      color: var(--ink-soft);
+    }
+    .edu-item .name {
+      font-size: 9.8px;
+      font-weight: 700;
+      color: var(--ink-soft);
+      line-height: 1.35;
+    }
+    .edu-item .place {
+      font-size: 9.8px;
+      font-weight: 400;
+      color: var(--ink-soft);
+    }
+
+    .langs { top: 524px; }
+    .langs p {
+      font-size: 10px;
+      margin: 0 0 6px 8px;
+      line-height: 1.35;
+    }
+    .langs .place {
+      font-weight: 700;
+      margin-top: -2px;
+    }
+
+    .cursos { top: 640px; }
+    .cursos ul {
+      list-style: disc;
+      margin-left: 22px;
+      font-size: 10px;
+      line-height: 1.55;
+    }
+    .cursos li { margin-bottom: 4px; }
+
+    /* RIGHT COLUMN */
+    .main {
+      position: absolute;
+      left: calc(var(--sidebar-w) + 18px);
+      right: 18px;
+      top: 0;
+      bottom: 0;
+    }
+
+    .name {
+      font-family: "Garet", "Poppins", sans-serif;
+      font-weight: 700;
+      font-size: 23px;
+      line-height: 1.05;
+      text-align: center;
+      margin-top: 18px;
+      letter-spacing: 0.5px;
+    }
+
+    .role-bar {
+      margin: 10px auto 0;
+      background: #42423c;
+      color: #fff;
+      text-align: center;
+      font-family: "Garet", "Poppins", sans-serif;
+      font-weight: 700;
+      font-size: 11.5px;
+      letter-spacing: 0.3px;
+      padding: 7px 10px;
+      width: 100%;
+    }
+
+    .main-title {
+      font-family: "Garet", "Poppins", sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      text-transform: uppercase;
+      margin: 16px 0 8px;
+      padding-left: 18px;
+      position: relative;
+    }
+    .main-title::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 3px;
+      width: 11px;
+      height: 11px;
+      border: 1.5px solid var(--beige-dark);
+      background: var(--white);
+    }
+    .main-title::after {
+      content: "";
+      position: absolute;
+      left: 11px;
+      right: -6px;
+      top: 8px;
+      border-top: 1.5px solid var(--beige);
+    }
+
+    .about {
+      font-family: "Poppins", sans-serif;
+      font-weight: 300;
+      font-size: 10.1px;
+      line-height: 1.42;
+      text-align: justify;
+      margin-left: 4px;
+    }
+
+    .timeline {
+      position: relative;
+      margin-top: 4px;
+      margin-left: 8px;
+      padding-left: 14px;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 4px;
+      top: 10px;
+      bottom: 8px;
+      width: 1.5px;
+      background: var(--beige-dark);
+    }
+
+    .job {
+      position: relative;
+      margin-bottom: 8px;
+    }
+    .job::before {
+      content: "";
+      position: absolute;
+      left: -14px;
+      top: 4px;
+      width: 10px;
+      height: 10px;
+      border: 1.5px solid var(--beige-dark);
+      background: var(--white);
+      border-radius: 1px;
+      z-index: 1;
+    }
+
+    .job-date {
+      display: inline-block;
+      background: var(--beige);
+      font-size: 9.6px;
+      padding: 2px 8px 2px 6px;
+      margin-bottom: 1px;
+      line-height: 1.3;
+    }
+    .job-company {
+      font-size: 9.6px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+    .job-role {
+      font-size: 9.6px;
+      font-weight: 400;
+      line-height: 1.3;
+      margin-bottom: 2px;
+    }
+    .job ul {
+      list-style: disc;
+      margin: 2px 0 0 16px;
+      font-family: "Poppins", sans-serif;
+      font-weight: 300;
+      font-size: 10px;
+      line-height: 1.38;
+    }
+
+    /* PAGE 2 */
+    .skills { top: 52px; }
+    .skills ul {
+      list-style: none;
+      margin: 8px 0 0 4px;
+      font-family: "Poppins", sans-serif;
+      font-weight: 300;
+      font-size: 9.7px;
+      line-height: 1.85;
+    }
+    .skills li {
+      position: relative;
+      padding-left: 12px;
+    }
+    .skills li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 7px;
+      width: 4px;
+      height: 4px;
+      background: var(--ink);
+      border-radius: 50%;
+    }
+
+    .refs { top: 518px; }
+    .ref {
+      margin: 0 0 10px 10px;
+      font-size: 10.8px;
+      line-height: 1.35;
+    }
+    .ref .rname { font-weight: 400; }
+    .ref .rrole { font-weight: 700; }
+    .ref .rorg, .ref .rphone { font-weight: 400; }
+
+    .certs {
+      position: absolute;
+      left: calc(var(--sidebar-w) + 22px);
+      right: 12px;
+      top: 55px;
+      bottom: 18px;
+    }
+    .certs h2 {
+      font-family: "Garet", "Poppins", sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      margin-bottom: 12px;
+      padding-left: 18px;
+      position: relative;
+    }
+    .certs h2::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 1px;
+      width: 11px;
+      height: 11px;
+      border: 1.5px solid var(--beige-dark);
+      background: var(--white);
+    }
+    .certs h2::after {
+      content: "";
+      position: absolute;
+      left: 11px;
+      right: 0;
+      top: 6px;
+      border-top: 1.5px solid var(--beige);
+    }
+    .cert-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      height: calc(100% - 28px);
+    }
+    .cert-grid img {
+      width: 100%;
+      height: auto;
+      max-height: 215px;
+      object-fit: contain;
+      object-position: center top;
+      background: #fafafa;
+      border: 1px solid #ebe6df;
+    }
+    .cert-bottom {
+      display: grid;
+      grid-template-columns: 1.35fr 0.85fr;
+      gap: 8px;
+      align-items: start;
+    }
+    .cert-bottom img { max-height: 180px; }
+
+    @media print {
+      html, body { background: none; width: auto; }
+      .page { margin: 0; box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <!-- PAGE 1 -->
+  <section class="page">
+    <div class="sidebar">
+      <div class="photo-accent"></div>
+      <div class="photo-wrap">
+        <img src="assets/foto.jpg" alt="Foto de Andrés Cornejo" />
+      </div>
+
+      <div class="side-section contact">
+        <div class="side-title">CONTACTOS<span class="side-rule"></span></div>
+        <p>
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#3a3834" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>
+          +593 98 359 2954
+        </p>
+        <p>
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#3a3834" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m4 7 8 6 8-6"/></svg>
+          andrescoraf@gmail.com
+        </p>
+        <p style="margin-left:40px;font-size:10.5px;">andalcor@espol.edu.ec</p>
+      </div>
+
+      <div class="side-section edu">
+        <div class="side-title">EDUCACIÓN<span class="side-rule"></span></div>
+        <div class="edu-item">
+          <div class="dates">2021-2026</div>
+          <div class="name">Ingeniero en Ciencias de la<br/>Computación</div>
+          <div class="place">ESPOL</div>
+        </div>
+        <div class="edu-item">
+          <div class="dates">2015-2021</div>
+          <div class="name">Bachillerato Internacional</div>
+          <div class="place">Colegio “San José La Salle - Ecuador”</div>
+        </div>
+      </div>
+
+      <div class="side-section langs">
+        <div class="side-title">LENGUAJES<span class="side-rule"></span></div>
+        <p>Español nativo</p>
+        <p>B2 English</p>
+        <p class="place">Centro Ecuatoriano Norteamericano</p>
+      </div>
+
+      <div class="side-section cursos">
+        <div class="side-title">CURSOS<span class="side-rule"></span></div>
+        <ul>
+          <li>FullStack web developer Django + React- Coodings</li>
+          <li>Graduado de la Academia AWS - Ingeniería de Datos - Insignia de capacitación</li>
+          <li>Microsoft Word and Excel advanced</li>
+          <li>Power Point</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="name">ANDRES ALFREDO<br/>CORNEJO FIGUEROA</div>
+      <div class="role-bar">INGENIERO EN CIENCIAS DE COMPUTACIÓN</div>
+
+      <h2 class="main-title">ACERCA DE MI</h2>
+      <p class="about">
+        Ingeniero en Ciencias de la Computación por la ESPOL, con experiencia
+        en desarrollo fullstack, AI Engineering y Data Engineering. Especializado
+        en automatización de procesos y en el diseño de flujos agénticos. He
+        participado en competencias universitarias de seguridad informática e
+        inteligencia artificial, y busco aportar soluciones técnicas sólidas y
+        escalables en entornos productivos.
+      </p>
+
+      <h2 class="main-title">EXPERIENCIA</h2>
+      <div class="timeline">
+        <div class="job">
+          <div class="job-date">Septiembre 2026 - Ahora</div>
+          <div class="job-company">SOYODA</div>
+          <div class="job-role">Programador de Sistemas</div>
+          <ul>
+            <li>Desarrollo y mantenimiento de sistemas de software.</li>
+            <li>Soporte y evolución de aplicaciones internas.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-date">Enero 2026 - Agosto 2026</div>
+          <div class="job-company">RIPIO</div>
+          <ul>
+            <li>Fullstack developer (.NET+ Django +PostgreSQL)</li>
+            <li>N8N + Desarrollo de agentes de IA</li>
+            <li>Web Scraping</li>
+            <li>RPA</li>
+            <li>LangGraph + Redis + OpenViking(Agent memory)</li>
+            <li>Docker + Caddy</li>
+            <li>Celery</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-date">Mayo 2025 - Nov 2025</div>
+          <div class="job-company">Banco Guayaquil</div>
+          <div class="job-role">(593) 97 913-0413</div>
+          <ul>
+            <li>Manejo del portal Azure (Asignación de Roles en base a una matriz RBAC, gestión de grupos de administración)</li>
+            <li>Active Directory, Trend Vision One y Mosyle.</li>
+            <li>Power Platform (Power Automate, Power Virtual Agents)</li>
+            <li>Reducción del 40% en tiempo de asignación de licencias de Teams y Microsoft 365 mediante flujos de Power Automate</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-date">Junio 2025 - Ahora</div>
+          <div class="job-company">Consultor Independiente / Desarrollador Fullstack</div>
+          <div class="job-role">(593) 98 359-2954</div>
+          <ul>
+            <li>MMN (Sistema de Control de Reparaciones)</li>
+            <li>PRICOTERCORP(Ecommerce) Contifico + Datafast</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-date">Mayo 2024 - Feb 2025</div>
+          <div class="job-company">ESPOL</div>
+          <div class="job-role">+593 98 519 4690</div>
+          <ul>
+            <li>Desarrollador Backend y Frontend React + Flutter</li>
+            <li>Mantenimiento de hardware</li>
+            <li>API REST</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE 2 -->
+  <section class="page">
+    <div class="sidebar" style="top:6px;bottom:6px;">
+      <div class="side-section skills">
+        <div class="side-title">HABILIDADES<span class="side-rule"></span></div>
+        <ul>
+          <li>Atención y soporte al usuario</li>
+          <li>Power Platforms (Power automate, Power BI, Power Virtual Agents) + N8N</li>
+          <li>Lenguajes de programación: Python, Dart, JavaScript, Ruby, PHP, R</li>
+          <li>Frameworks y herramientas: Django, Flutter, Ruby on Rails, Jenkins, jQuery</li>
+          <li>Bases de datos: PostgreSQL, Redis, BD tipo RAG para agentes (OpenViking)</li>
+          <li>Análisis de datos y generación de reportes: Pandas, R, ReportLab (PDF), Web Scraping, análisis de comunidades, modelos de regresión, y clustering</li>
+          <li>DevOps e Integración/Entrega continua (CI/CD): Jenkins, GitHub, Despliegue en AWS.</li>
+          <li>Enfoque en la hiper-automatización de procesos bancarios y corporativos mediante RPA y desarrollo de software a medida</li>
+          <li>Manejo de Power BI en la inteligencia del negocio.</li>
+        </ul>
+      </div>
+
+      <div class="side-section refs">
+        <div class="side-title" style="font-size:12px;">REFERENCIAS PERSONALES<span class="side-rule"></span></div>
+        <div class="ref">
+          <div class="rname">Andrés David Loor Villamar</div>
+          <div class="rrole">Cyber Identity Engineer</div>
+          <div class="rorg">Banco Guayaquil</div>
+          <div class="rphone">+593979130413</div>
+        </div>
+        <div class="ref">
+          <div class="rname">Joffre Morales</div>
+          <div class="rrole">Gerente General</div>
+          <div class="rorg">Mágico Mundo del Nintendo</div>
+          <div class="rphone">+593987181478</div>
+        </div>
+        <div class="ref">
+          <div class="rname">Brian Huber</div>
+          <div class="rrole">Manager</div>
+          <div class="rorg">Electric Tour Company</div>
+          <div class="rphone">14154743130</div>
+        </div>
+        <div class="ref">
+          <div class="rname">Ing. Daniel Castro</div>
+          <div class="rrole">Asistent DST Area</div>
+          <div class="rorg">ESPOL</div>
+          <div class="rphone">+593985194690</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="certs">
+      <h2>CERTIFICACIONES</h2>
+      <div class="cert-grid">
+        <img src="assets/cert_espol.png" alt="Título ESPOL" />
+        <img src="assets/cert_codings.png" alt="Certificado Codings Django + React" />
+        <div class="cert-bottom">
+          <img src="assets/cert_ib.png" alt="Diploma Bachillerato Internacional" />
+          <img src="assets/cert_aws.png" alt="AWS Academy Data Engineering" />
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
