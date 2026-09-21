@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Edit the original Canva CV PDF: keep design, update experience."""
+"""Edit the original Canva CV PDF: keep design, update about + experience."""
 
 from pathlib import Path
 
@@ -13,6 +13,15 @@ INK = (0x3A / 255, 0x38 / 255, 0x34 / 255)
 BEIGE = (0xDF / 255, 0xDA / 255, 0xD4 / 255)
 BEIGE_DARK = (0xC0 / 255, 0xB5 / 255, 0xA7 / 255)
 WHITE = (1, 1, 1)
+
+ABOUT = (
+    "Ingeniero en Ciencias de la Computación por la ESPOL, con experiencia "
+    "en desarrollo fullstack, AI Engineering y Data Engineering. Especializado "
+    "en automatización de procesos y en el diseño de flujos agénticos. He "
+    "participado en competencias universitarias de seguridad informática e "
+    "inteligencia artificial, y busco aportar soluciones técnicas sólidas y "
+    "escalables en entornos productivos."
+)
 
 JOBS = [
     {
@@ -76,6 +85,26 @@ JOBS = [
 ]
 
 
+def wrap_text(text: str, fontfile: str, fontsize: float, max_width: float) -> list[str]:
+    """Greedy word wrap using font metrics."""
+    font = fitz.Font(fontfile=fontfile)
+    words = text.split()
+    lines: list[str] = []
+    current = ""
+    for word in words:
+        trial = word if not current else f"{current} {word}"
+        width = font.text_length(trial, fontsize=fontsize)
+        if width <= max_width:
+            current = trial
+        else:
+            if current:
+                lines.append(current)
+            current = word
+    if current:
+        lines.append(current)
+    return lines
+
+
 def main() -> None:
     if not SRC.exists():
         raise SystemExit(
@@ -86,14 +115,33 @@ def main() -> None:
     doc = fitz.open(SRC)
     page = doc[0]
 
-    # Remove original experience content; keep EXPERIENCIA title and rest of design.
-    page.add_redact_annot(fitz.Rect(248, 272, 595.5, 842), fill=WHITE)
-    page.apply_redactions(images=fitz.PDF_REDACT_IMAGE_NONE)
-
     font_reg = str(FONT_DIR / "Poppins-Regular.ttf")
     font_bold = str(FONT_DIR / "Poppins-Bold.ttf")
     font_light = str(FONT_DIR / "Poppins-Light.ttf")
 
+    # Redact old about paragraph + experience content (keep section titles).
+    page.add_redact_annot(fitz.Rect(248, 128, 595.5, 245), fill=WHITE)
+    page.add_redact_annot(fitz.Rect(248, 272, 595.5, 842), fill=WHITE)
+    page.apply_redactions(images=fitz.PDF_REDACT_IMAGE_NONE)
+
+    # --- About ---
+    about_x = 266.3
+    about_y = 142.0
+    about_max_w = 314.0
+    about_size = 10.0
+    about_leading = 14.2
+    for line in wrap_text(ABOUT, font_light, about_size, about_max_w):
+        page.insert_text(
+            (about_x, about_y),
+            line,
+            fontfile=font_light,
+            fontsize=about_size,
+            color=INK,
+            overlay=True,
+        )
+        about_y += about_leading
+
+    # --- Experience ---
     x0 = 265.0
     line_x = 265.5
     y = 282.0

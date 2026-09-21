@@ -30,13 +30,12 @@ OUT_DIR = Path(__file__).resolve().parent
 # - Started Soyoda this month as Programador de Sistemas (Septiembre 2026 – Ahora)
 
 ABOUT = (
-    "¡Hola! Soy Ingeniero de Ciencias de la Computación en ESPOL, "
-    "apasionado por la automatización de procesos y la elaboración "
-    "de flujos agénticos. He competido en retos universitarios de "
-    "seguridad informática e inteligencia artificial, y poseo experiencia "
-    "en desarrollo fullstack, AI Engineering, Data Engineering y "
-    "programación de sistemas. Estoy entusiasmado por continuar creciendo "
-    "en mi trayectoria profesional y comprometido a dedicarme plenamente en ello."
+    "Ingeniero en Ciencias de la Computación por la ESPOL, con experiencia "
+    "en desarrollo fullstack, AI Engineering y Data Engineering. Especializado "
+    "en automatización de procesos y en el diseño de flujos agénticos. He "
+    "participado en competencias universitarias de seguridad informática e "
+    "inteligencia artificial, y busco aportar soluciones técnicas sólidas y "
+    "escalables en entornos productivos."
 )
 
 EXPERIENCES = [
@@ -471,7 +470,8 @@ def build_pdf(path: Path) -> None:
 
 def main() -> None:
     docx_path = OUT_DIR / "CV_ANDRES_ALFREDO_CORNEJO_FIGUEROA.docx"
-    pdf_path = OUT_DIR / "CV_ANDRES_ALFREDO_CORNEJO_FIGUEROA.pdf"
+    # Avoid overwriting the Canva-styled PDF produced by edit_canva_pdf.py
+    pdf_path = OUT_DIR / "CV_ANDRES_ALFREDO_CORNEJO_FIGUEROA_simple.pdf"
     build_docx(docx_path)
     build_pdf(pdf_path)
     print(f"Wrote {docx_path}")
